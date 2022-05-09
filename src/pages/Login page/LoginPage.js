@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 import styles from './LoginPage.module.css'
+import Container from 'components/Container/Container';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 
 export default function LoginPage(){
@@ -28,13 +31,13 @@ export default function LoginPage(){
   };
 
     return (
-        <div>
-          <h1>Sign in to your account</h1>
+        <Container>
+          <h1 className={styles.title}>Sign in to your account</h1>
     
           <form onSubmit={handleSubmit} className={styles.form} autoComplete="off">
             <label className={styles.label}>
             Email
-              <input
+              <input className={styles.input}
                 type="email"
                 name="email"
                 value={email}
@@ -45,7 +48,7 @@ export default function LoginPage(){
     
             <label className={styles.label}>
             Password
-              <input
+              <input className={styles.input}
                 type="password"
                 name="password"
                 value={password}
@@ -54,9 +57,11 @@ export default function LoginPage(){
               />
             </label>
     
-            <button type="submit">Sign in</button>
+            <Box textAlign='center' >
+            <Button variant="contained" type="submit" >Sign in</Button>
+            </Box>
           </form>
-        </div>
+        </Container>
       );
     }
 

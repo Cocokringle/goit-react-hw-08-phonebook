@@ -1,5 +1,5 @@
 import React from "react"
-import s from './Filter.module.css'
+import styles from './Filter.module.css'
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 import contactsSelectors from 'redux/contacts/contacts-selectors';
@@ -13,9 +13,12 @@ const Filter = () => {
 
 
     return(
-        <label htmlFor={filterId}>Find contact by name
-            <input className={s.filter} type="text" value={filter} id={filterId} onChange={e => dispatch(changeFilter(e.currentTarget.value))}/>
+        <form className={styles.form}>
+        <label htmlFor={filterId} className={styles.label} >Find contact by name
+            <input className={styles.input} type="text" value={filter} id={filterId} onChange={e => dispatch(changeFilter(e.currentTarget.value))}/>
         </label>
+        </form>
+ 
     )
 }
 

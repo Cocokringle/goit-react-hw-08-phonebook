@@ -3,6 +3,9 @@ import ContactListItem from 'components/ContactList/ContactListItem/ContactListI
 import { useSelector, useDispatch } from 'react-redux';
 import contactsOperations from 'redux/contacts/contacts-operation';
 import contactsSelectors from 'redux/contacts/contacts-selectors';
+import styles from './ContactList.module.css'
+// import List from '@mui/material/List';
+
 
 
 
@@ -21,8 +24,12 @@ const ContactList = () => {
     };
 
    return (
-      <ul>{getVisibleContacts().map((contact) => (<ContactListItem  key={contact.id} contact={contact} onDeleteContact={deleteContact}/>))}
+ 
+      <ul className={styles.list}>{getVisibleContacts().map((contact) => (<ContactListItem  key={contact.id} contact={contact} onDeleteContact={deleteContact}/>))}
       </ul>
+     
+
+
    )
 
 

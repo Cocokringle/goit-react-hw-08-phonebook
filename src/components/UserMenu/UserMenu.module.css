@@ -2,10 +2,10 @@
     display: flex;
     align-items: center;
 }
-.avatar {
-    margin-right: 4px
-}
+
 .name{
     font-weight: 700;
     margin-right: 12px;
+    color: #2A363B;
+    margin-left: 10px;
 }

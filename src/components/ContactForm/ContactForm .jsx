@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import contactsOperations from 'redux/contacts/contacts-operation';
 import contactsSelectors from 'redux/contacts/contacts-selectors';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import styles from './ContactForm.module.css'
 
 
 
@@ -64,9 +66,9 @@ export default function ContactForm(){
     
     return(
         
-            <form onSubmit={handleSubmit}>
-                <label htmlFor={nameInputId}> Name
-                    <input className={s.contactsItem}
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <label htmlFor={nameInputId} className={styles.label}> Name
+                    <input className={styles.input}
                         type="text"
                         value={name}
                         name='name'
@@ -77,8 +79,8 @@ export default function ContactForm(){
                         id={nameInputId}
                     />
                 </label>
-                <label  htmlFor={numberInputId}>Number 
-                    <input className={s.contactsItem}
+                <label  htmlFor={numberInputId} className={styles.label} >Number 
+                    <input className={styles.input}
                         type="tel"
                         value={number}
                         name="number"
@@ -89,7 +91,10 @@ export default function ContactForm(){
                         id={numberInputId}
                     />
                 </label>
+                <Box textAlign='center' >
                 <Button type="submit" variant="contained">Add contact</Button>
+                </Box>
+
             </form>
   
            

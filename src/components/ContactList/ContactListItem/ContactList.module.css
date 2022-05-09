@@ -1,17 +1,18 @@
 .contact{
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.contact_name{
-    margin-right: 10px;
-}
-
-.contact_number{
+    list-style-type: none;
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    padding: 2px 20px;
 }
-.contact_button{
-    border-radius: 50%;
+.contact:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+
+.contact_info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 10px;
+    color: #2A363B;
 }

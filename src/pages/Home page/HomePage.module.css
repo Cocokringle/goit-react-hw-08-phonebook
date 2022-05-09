@@ -8,4 +8,7 @@
     font-weight: 500;
     font-size: 48px;
     text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    color: #2A363B;
 }

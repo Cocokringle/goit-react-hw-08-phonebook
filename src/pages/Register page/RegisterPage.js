@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 import styles from './RegisterPage.module.css'
+import Container from 'components/Container/Container';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 export default function RegisterPage(){
   const dispatch = useDispatch();
@@ -35,13 +38,13 @@ export default function RegisterPage(){
   }
 
     return (
-        <div>
-          <h1>Register an account</h1>
+        <Container>
+          <h1 className={styles.title}>Register an account</h1>
     
           <form  onSubmit={handleSubmit} className={styles.form} autoComplete="off">
             <label className={styles.label}>
               Name
-              <input 
+              <input className={styles.input}
               type="text" 
               name="name" 
               value={name} 
@@ -50,7 +53,7 @@ export default function RegisterPage(){
     
             <label className={styles.label}>
             Email
-              <input
+              <input className={styles.input}
                 type="email"
                 name="email"
                 value={email}
@@ -61,7 +64,7 @@ export default function RegisterPage(){
     
             <label className={styles.label}>
             Password
-              <input
+              <input className={styles.input}
                 type="password"
                 name="password"
                 value={password}
@@ -69,9 +72,11 @@ export default function RegisterPage(){
                 autoComplete="off"
               />
             </label>
-    
-            <button type="submit">Sign up</button>
+            <Box textAlign='center' >
+            <Button variant="contained" type="submit">Sign up</Button>
+            </Box>
+
           </form>
-        </div>
+        </Container>
       );
 }
