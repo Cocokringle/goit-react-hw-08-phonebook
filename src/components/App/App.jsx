@@ -1,18 +1,22 @@
-// import s from './App.module.css'
+
 import { Routes, Route, Navigate} from 'react-router-dom';
-// import Container from 'components/Container/Container';
 import Container from '@mui/material/Container';
 import Appbar from 'components/AppBar/AppBar';
-import HomePage from 'pages/Home page/HomePage';
-import RegisterPage from 'pages/Register page/RegisterPage';
-import LoginPage from 'pages/Login page/LoginPage';
-import PhonebookPage from 'pages/Phonebook page/PhonebookPage';
-import { useEffect, Suspense  } from 'react';
+import { useEffect, Suspense, lazy  } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 import { useSelector } from "react-redux";
 import { authSelectors } from "redux/auth";
-import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
+const HomePage = lazy(() => import('pages/Home page/HomePage'))
+const RegisterPage = lazy(() => import('pages/Register page/RegisterPage'))
+const LoginPage = lazy(() => import('pages/Login page/LoginPage'))
+const PhonebookPage = lazy(() => import('pages/Phonebook page/PhonebookPage'))
+
+
+
 
 export const App = () => {
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
@@ -24,7 +28,12 @@ export const App = () => {
  
     return (
         isFetchingCurrentUser && (
-            <Suspense fallback={<LinearProgress/>}>
+           <Suspense fallback={ <Box sx={{ display: 'flex', alignItems: 'center',
+           justifyContent: 'center',top: 0,
+           left: 0,
+           bottom: 0,
+           right: 0,
+           position: 'absolute', }}><CircularProgress/></Box>}>
             <Container fixed>
                 <Appbar/>
                 <Routes>
