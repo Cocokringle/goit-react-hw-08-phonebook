@@ -1,26 +1,21 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import s from './ContactList.module.css'
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const ContactListItem = ({contact, onDeleteContact}) => {
-  const {phone, id, name} = contact;
+  const {number, id, name} = contact;
     return (
      <li className={s.contact} key={id}>
          <p className={s.contact_name}>{name}</p>
-          <a className={s.contact_number} href="tel:{number}">{phone}</a>
-          <button className={s.contact_button} type='button' onClick={() => onDeleteContact(id)}>Delete</button>
+          <a className={s.contact_number} href="tel:{number}">{number}</a>
+          <Button variant="outlined" onClick={() => onDeleteContact(id)} startIcon={<DeleteIcon />}>Delete</Button>
      </li>
     )
  
  }
  
-//  ContactListItem.propTypes = {
-//     contact: PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     }),
-//     onDelete: PropTypes.func,
-//   };
+
  
  export default ContactListItem;
