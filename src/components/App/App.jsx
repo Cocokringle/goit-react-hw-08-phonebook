@@ -16,8 +16,6 @@ const LoginPage = lazy(() => import('pages/Login page/LoginPage'))
 const PhonebookPage = lazy(() => import('pages/Phonebook page/PhonebookPage'))
 
 
-
-
 export const App = () => {
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
     const isFetchingCurrentUser = (authSelectors.getIsFetchingCurrentUser)
