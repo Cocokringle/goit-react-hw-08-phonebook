@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -28,7 +29,7 @@ const logIn = createAsyncThunk('auth/login', async (credentials, { rejectWithVal
       token.set(data.token);
       return data;
     } catch (error) {
-      rejectWithValue(error.message)
+      rejectWithValue(Notify.failure('Email or password entered incorrectly :('))
     }
   });
 
