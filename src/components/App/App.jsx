@@ -14,7 +14,7 @@ const HomePage = lazy(() => import('pages/Home page/HomePage'))
 const RegisterPage = lazy(() => import('pages/Register page/RegisterPage'))
 const LoginPage = lazy(() => import('pages/Login page/LoginPage'))
 const PhonebookPage = lazy(() => import('pages/Phonebook page/PhonebookPage'))
-
+const NotFoundPage =lazy(() => import('pages/NotFoundPage/NotFoundPage'))
 
 export const App = () => {
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
@@ -39,6 +39,7 @@ export const App = () => {
                     <Route path="/register" element={isLoggedIn ? <Navigate to="/contacts"/> : <RegisterPage/>} />
                     <Route path="/login" element={isLoggedIn ? <Navigate to="/contacts"/> :<LoginPage/>} />
                     <Route path="/contacts" element={isLoggedIn ? <PhonebookPage/> : <Navigate to="/"/>} />
+                    <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
             </Container>
             </Suspense>

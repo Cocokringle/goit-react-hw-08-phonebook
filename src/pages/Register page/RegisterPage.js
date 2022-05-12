@@ -48,16 +48,21 @@ export default function RegisterPage(){
               type="text" 
               name="name" 
               value={name} 
-              onChange={handleChange} />
+              onChange={handleChange} 
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              required/>
+
             </label>
     
             <label className={styles.label}>
             Email
+
               <input className={styles.input}
                 type="email"
                 name="email"
                 value={email}
                 onChange={handleChange}
+                required
             
               />
             </label>
@@ -70,6 +75,8 @@ export default function RegisterPage(){
                 value={password}
                 onChange={handleChange}
                 autoComplete="off"
+                required
+                pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"
               />
             </label>
             <Box textAlign='center' >
