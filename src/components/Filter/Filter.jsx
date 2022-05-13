@@ -11,11 +11,16 @@ const Filter = () => {
     const dispatch = useDispatch()
     const filter = useSelector(contactsSelectors.getFilter);
 
+    const filtred = e => {
+        dispatch(changeFilter(e.currentTarget.value))
+
+    }
+
 
     return(
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={e => e.preventDefault()}>
         <label htmlFor={filterId} className={styles.label} >Find contact by name
-            <input className={styles.input} type="text" value={filter} id={filterId} onChange={e => dispatch(changeFilter(e.currentTarget.value))}/>
+            <input className={styles.input} type="text" value={filter} id={filterId} onChange={filtred}/>
         </label>
         </form>
  
